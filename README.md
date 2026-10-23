@@ -21,7 +21,7 @@ The system follows a well-defined 6-stage pipeline with clear separation of resp
 ### 1. Query Analysis
 
 - **Purpose**: Process and expand user queries for better retrieval
-- **Location**: [queryProcessor.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/services/queryProcessor.js) - query expansion, [ragController.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/controllers/ragController.js) - preprocessing
+- **Location**: [queryProcessor.js](api/services/queryProcessor.js) - query expansion, [ragController.js](api/controllers/ragController.js) - preprocessing
 - **Function**: Rewrites and expands queries to improve semantic matching
 
 ### 2. Semantic Retrieval (FAISS)
@@ -33,25 +33,25 @@ The system follows a well-defined 6-stage pipeline with clear separation of resp
 ### 3. Retrieval Validation (Gating)
 
 - **Purpose**: Ensure quality of retrieved results before answer generation
-- **Location**: [ragController.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/controllers/ragController.js) - `_validateRetrievalQuality` method
+- **Location**: [ragController.js](api/controllers/ragController.js) - `_validateRetrievalQuality` method
 - **Function**: Enforces minimum similarity threshold and document diversity
 
 ### 4. Result Quality Optimization
 
 - **Purpose**: Improve result quality through deduplication and grouping
-- **Location**: [queryProcessor.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/services/queryProcessor.js) - `_deduplicateResults` and `_groupResultsByDocument`
+- **Location**: [queryProcessor.js](api/services/queryProcessor.js) - `_deduplicateResults` and `_groupResultsByDocument`
 - **Function**: Removes near-identical chunks and limits per-document representation
 
 ### 5. Answer Generation
 
 - **Purpose**: Create responses from retrieved context using LLM
-- **Location**: [ragController.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/controllers/ragController.js) - LLM integration
+- **Location**: [ragController.js](api/controllers/ragController.js) - LLM integration
 - **Function**: Generates grounded answers based on retrieved context
 
 ### 6. Source Citation
 
 - **Purpose**: Show original document sources for transparency
-- **Location**: [queryProcessor.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/services/queryProcessor.js) - citation formatting, [SourcesPanel.js](file:///c:/Users/samru/OneDrive/Desktop/RAG%20Project/api/frontend-react/src/components/SourcesPanel.js) - frontend display
+- **Location**: [queryProcessor.js](api/services/queryProcessor.js) - citation formatting
 - **Function**: Provides transparent source attribution
 
 ## Installation
